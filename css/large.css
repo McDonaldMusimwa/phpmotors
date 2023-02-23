@@ -1,0 +1,62 @@
+@media only screen and (min-width: 64rem) {
+  html {
+    background-image: url("../images/site/checkerboard.jpg");
+  }
+  header p{
+    margin-right: 1rem;
+  }
+  body {
+    margin: 5% 10% 5% 10%;
+    border-radius: 8px;
+    border: solid var(--skyblue) 5px;
+    padding: 2px;
+    width: 80%;
+  }
+  /*form*/
+  form h1 {
+    margin: 2rem 40%;
+    padding: 15px;
+  }
+  form {
+    max-width: 900px;
+    min-width: 500px;
+  }
+  #submit {
+    margin-bottom: 20px;
+    width: 97%;
+    margin: 10px 40% 3rem 2%;
+  }
+  label {
+    display: block;
+    margin: 0 0.5rem 0.5rem 1rem;
+  }
+  input,
+  textarea {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    margin: 10px 0 20px ;
+    width: 100%;
+    min-height: 3rem;
+  }
+  .signup{
+    margin: 0 40%;
+  }
+  form>h1{
+    margin: 0 auto;
+  }
+  #classificationId{
+    width: 98%;
+    height: 50px;
+    margin-left: 14px;
+  }
+  .message{
+    color:red;
+    margin:1rem;
+  }
+  
+  .good{
+    color:green;
+  }
+  
+}

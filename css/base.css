@@ -1,0 +1,130 @@
+:root {
+  --lightgrey: #bababa;
+  --medgrey: #8d8d8d;
+  --lightblue: #a6cbeb;
+  --skyblue: #4c96d7;
+  --darkgrey: #3a3a3a;
+  --white: #ffffff;
+}
+.logo {
+  width: 200px;
+  height: 100px;
+}
+body {
+  background-color: var(--white);
+  width: 100%;
+}
+#beforenav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+nav {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--darkgrey);
+  text-align: center;
+    
+  
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+nav ul li {
+  color: var(--white);
+  display: inline-block;
+  list-style-type: none;
+}
+nav ul li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: var(--white);
+  font-size: 20px;
+}
+nav ul li a:hover {
+  background-color: var(--skyblue);
+  color: var(--darkgrey);
+}
+br{
+    background-color: var(--darkgrey);
+}
+/*Login Css*/
+form h1{
+  margin: 2rem 34%;
+}
+
+form img{
+  width: 50px;
+  margin: 2rem 45%;
+}
+fieldset{
+  border: none;
+  
+}
+
+form{
+  box-shadow: 5px 4px 2px 0px #a4a4a5;
+  background-color: #a9c8e2;
+  border: solid 1px;
+  width: 60vw;
+  max-width: 500px;
+  min-width: 300px;
+  margin: 1rem auto;
+  color: black;
+  border: 1px solid black;
+  border-radius: 4px;
+
+}
+label{
+  display: block;
+  margin: 0 0.5rem 0;
+}
+input,select{
+  border-radius: 3px;
+}
+input,textarea{
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  margin: 10px 0 20px 0 ;
+  width: 90%;
+  min-height: 3rem;
+ 
+}
+#submit{
+  height: 40px;
+  width: 87%;
+  border-radius: 4px;
+  margin: 10px 40% 1rem 3%;
+  background-color: #4c96d7;
+  
+}
+#area2{
+  margin: 0 auto;
+}
+.signup{
+  margin: 0 25%;
+}
+label a{
+  color:black;
+}
+footer {
+  text-align: center;
+}
+#classificationId{
+  width: 235px;
+  font-size: 20px;
+  height: 40px;
+  margin: 10px;
+}
+.message{
+  color:red;
+  margin:1rem;
+}
+
+.good{
+  color:green;
+}
