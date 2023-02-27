@@ -20,7 +20,7 @@
       <main>  
         <div>The content goes here</div>
     </main>
-    <br>
+    <hr>
 	
     <footer>
 

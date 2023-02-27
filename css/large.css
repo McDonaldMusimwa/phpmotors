@@ -2,7 +2,7 @@
   html {
     background-image: url("../images/site/checkerboard.jpg");
   }
-  header p{
+  header p {
     margin-right: 1rem;
   }
   body {
@@ -13,10 +13,7 @@
     width: 80%;
   }
   /*form*/
-  form h1 {
-    margin: 2rem 40%;
-    padding: 15px;
-  }
+
   form {
     max-width: 900px;
     min-width: 500px;
@@ -35,28 +32,43 @@
     background-color: white;
     border: 1px solid black;
     color: black;
-    margin: 10px 0 20px ;
+    margin: 10px 0 20px;
     width: 100%;
     min-height: 3rem;
   }
-  .signup{
+  .signup {
     margin: 0 40%;
   }
-  form>h1{
-    margin: 0 auto;
+  form > h1 {
+    margin: 0 40%;
+
+    padding: 15px;
   }
-  #classificationId{
+  #classificationId {
     width: 98%;
     height: 50px;
     margin-left: 14px;
   }
-  .message{
-    color:red;
-    margin:1rem;
+  .message {
+    color: red;
+    margin: 1rem;
   }
-  
-  .good{
-    color:green;
+
+  .good {
+    color: green;
   }
-  
+  #beforenav p {
+    margin-left: 60%;
+    display: inline;
+    padding: 40px;
+    font-size: 15px;
+  }
+  .myaccount > a > img {
+    width: 7%;
+    display: inline;
+  }
+
+  .icon {
+    width: 30%;
+  }
 }

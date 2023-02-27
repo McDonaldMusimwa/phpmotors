@@ -38,6 +38,11 @@ function createNavList($carclassifications){
         return $navList;
 }
 
+function sessionEnd(){
+    session_start();
+    session_destroy();
+    header('location:index.php');
+}
 
 
 

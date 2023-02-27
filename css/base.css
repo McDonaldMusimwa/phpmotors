@@ -10,6 +10,16 @@
   width: 200px;
   height: 100px;
 }
+.myaccount > a > img {
+  width: 20%;
+  display: block;
+  margin:0 5px;
+}
+#beforenav p {
+  padding: 40px 2px;
+  margin-left: 10%;
+  font-size: 15px;
+}
 body {
   background-color: var(--white);
   width: 100%;
@@ -19,13 +29,12 @@ body {
   flex-direction: row;
   justify-content: space-between;
 }
+
 nav {
   display: flex;
   flex-direction: row;
   background-color: var(--darkgrey);
   text-align: center;
-    
-  
 }
 nav ul {
   list-style: none;
@@ -48,24 +57,23 @@ nav ul li a:hover {
   background-color: var(--skyblue);
   color: var(--darkgrey);
 }
-br{
-    background-color: var(--darkgrey);
+br {
+  background-color: var(--darkgrey);
 }
 /*Login Css*/
-form h1{
+form h1 {
   margin: 2rem 34%;
 }
 
-form img{
+form img {
   width: 50px;
   margin: 2rem 45%;
 }
-fieldset{
+fieldset {
   border: none;
-  
 }
 
-form{
+form {
   box-shadow: 5px 4px 2px 0px #a4a4a5;
   background-color: #a9c8e2;
   border: solid 1px;
@@ -76,55 +84,63 @@ form{
   color: black;
   border: 1px solid black;
   border-radius: 4px;
-
 }
-label{
+label {
   display: block;
   margin: 0 0.5rem 0;
 }
-input,select{
+input,
+select {
   border-radius: 3px;
 }
-input,textarea{
+input,
+textarea {
   background-color: white;
   border: 1px solid black;
   color: black;
-  margin: 10px 0 20px 0 ;
+  margin: 10px 0 20px 0;
   width: 90%;
   min-height: 3rem;
- 
 }
-#submit{
+#submit {
   height: 40px;
   width: 87%;
   border-radius: 4px;
   margin: 10px 40% 1rem 3%;
   background-color: #4c96d7;
-  
 }
-#area2{
+#area2 {
   margin: 0 auto;
 }
-.signup{
+.signup {
   margin: 0 25%;
 }
-label a{
-  color:black;
+label a {
+  color: black;
 }
 footer {
   text-align: center;
 }
-#classificationId{
+#classificationId {
   width: 235px;
   font-size: 20px;
   height: 40px;
   margin: 10px;
 }
-.message{
-  color:red;
-  margin:1rem;
+.message {
+  color: red;
+  margin: 1rem;
 }
 
-.good{
-  color:green;
+.good {
+  color: green;
+}
+hr {
+  background-color: var(--darkgrey);
+  height: 5px;
+}
+
+.icon {
+  width: 40%;
+  display: block;
 }

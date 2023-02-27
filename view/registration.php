@@ -21,7 +21,8 @@
             <h1>Join Our Team </h1>
             <?php 
           if (isset($message)){
-            echo $message;
+            
+            echo $_message;
           }
           
           
@@ -51,7 +52,7 @@
             </fieldset>
         </form>
     </main>
-    <br>
+    <hr>
 	
     <footer>
 

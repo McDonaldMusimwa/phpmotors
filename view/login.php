@@ -23,28 +23,28 @@
             <img  src='/phpmotors/images/login.png' alt='loginpicture'>
             <h1>Sign in</h1>
             <?php 
-          if (isset($message)){
-            echo $message;
+
+          if (isset($_SESSION['registered'])===TRUE){
+            
+            echo $_SESSION['message'];
           }
-          
-          
           
           ?>
             <fieldset>
             <label class='title'>Email:<input name='clientEmail' id='clientEmail' type='text' placeholder='Username' required <?php if(isset($clientEamil)){echo "value='$clientEamil'";}?>></label>
             <label class='title'>Password:</label>
-            <span>Password must be atleast 8 characters and contain at least 1 number,1 capital letter and 1 special characteer</span>
-            <input name='clientPassWord' id='clientPassWord' type='text' placeholder='Password' required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+            <span >Password must be atleast 8 characters and contain at least 1 number,1 capital letter and 1 special characteer</span>
+            <input name='clientPassword' id='clientPassword' type='password' placeholder='Password' required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
             </fieldset>
             <fieldset id='area2'>
-            <input style="color:black" id='submit' name='submit' type='button' value='LOGIN'>
+            <input style="color:black" id='submit' name='submit' type='submit' value='Sign In'>
             <!-- Add the action name - value pair-->
             <input type="hidden" name="action" value="Login">
             <label class='signup'>No Account?<a href='/phpmotors/account/index.php?action=registration'>Sign-up</a></label>
             </fieldset>
         </form>
     </main>
-    <br>
+    <hr>
 	
     <footer>
 
