@@ -40,9 +40,9 @@ if (! $_SESSION['loggedin']){
           </ul>
           <?php 
           if ($_SESSION['clientData']['clientLevel']>1){
-            echo '<p class"container" style="margin:20px;text-style:none;color:white;"><a href="/phpmotors/vehicles/index.php? ">
-            <img src="../images/carmanagement2.png" alt="Smashicons" style="width:20%;display:block">
-            <strong>View vehicle controller</strong>
+            echo '<p class"container" style="margin:20px;text-style:none;color:white;"><a  href="/phpmotors/vehicles/index.php? ">
+            <img class="admin" src="../images/carmanagement2.png" alt="Smashicons" style="width:20%;display:block">
+            <strong class="admin">View vehicle controller</strong>
             </a>
             </p>';
           }

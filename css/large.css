@@ -71,4 +71,10 @@
   .icon {
     width: 30%;
   }
+  #regbtn{
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #444;
+  }
 }

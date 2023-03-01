@@ -34,12 +34,17 @@ $navList = createNavList($classifications);
 
 $classificationList = '<label for="classificationId">Select a classification</label>';
 $classificationList .= '<select name="classificationId" id="classificationId">';
+$classificationList .='<option> Choose a Classification</option>';
 foreach ($classifications as $classification) {
     $classificationList .= "<option value='$classification[classificationId]'";
     if (isset($classificationId)){
         if ($classification['classificationId']===classificationId){
             $classificationList .= ' selected ';
             break;
+        }
+    } elseif(isset($invInfo['classificationId'])){
+        if($classification['classificationId'] === $invInfo['classificationId']){
+         $classifList .= ' selected ';
         }
     }
     $classificationList.=">$classification[classificationName] </option>"; 
@@ -118,8 +123,32 @@ switch ($action){
     case 'addclassification':
         include '../view/add-classification.php';
     break;
+    
+    case 'getInventoryItems':
+        //Get the classificationid and filter/sanitize it
+        $classificationId = filter_input(INPUT_GET,'classificationId',FILTER_SANITIZE_NUMBER_INT);
+        //fetch the vehicles by classification from the DB
+        $inventoryArray = getInventoryByClassification($classificationId);
+        //convert the array to a JSON object and send it back
+        echo json_encode($inventoryArray);
+        break ;
+
+
+    case 'mod':
+        $invId = filter_input(INPUT_GET,'invId',FILTER_VALIDATE_INT);
+        $invInfo=getInvItemInfo($invId);
+        if (count($invInfo)<1){
+            $message='Sorry no vehicle information could be found';
+        }
+        include '../view/vehicle-update.php';
+        
+        break;
+
     default:
     //$pageTitle='VEHICLE MANAGEMENT';
+
+
+    $classificationList = buildClassificationList($classifications);
     include '../view/vehicle-man.php';
     break;
 }

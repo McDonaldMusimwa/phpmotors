@@ -147,4 +147,9 @@
     border: 1px solid black;
     border-radius: 4px;
   }
+  /*table*/
+  .inventoryTable{
+    max-width: 60%;
+    margin: 5% 20%;
+  }
 }

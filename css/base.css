@@ -13,7 +13,7 @@
 .myaccount > a > img {
   width: 20%;
   display: block;
-  margin:0 5px;
+  margin: 0 5px;
 }
 #beforenav p {
   padding: 40px 2px;
@@ -60,11 +60,15 @@ nav ul li a:hover {
 br {
   background-color: var(--darkgrey);
 }
-/*Login Css*/
+/*form Login Css*/
+
 form h1 {
   margin: 2rem 34%;
 }
-
+.modifyhead {
+  margin: 2rem 19px;
+  font-size: 28px;
+}
 form img {
   width: 50px;
   margin: 2rem 45%;
@@ -77,7 +81,7 @@ form {
   box-shadow: 5px 4px 2px 0px #a4a4a5;
   background-color: #a9c8e2;
   border: solid 1px;
-  width: 60vw;
+  width: 90vw;
   max-width: 500px;
   min-width: 300px;
   margin: 1rem auto;
@@ -144,3 +148,4 @@ hr {
   width: 40%;
   display: block;
 }
+/*form */

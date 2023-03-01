@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php
+if ($_SESSION['clientData']['clientLevel'] < 2) {
+ header('location: /phpmotors/');
+ exit;
+}
+?><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -20,7 +25,7 @@
         </nav>
       <main> 
         <h1>Vehicle Management Portal</h1>
-        <div class="vehicles">
+        <section class="vehicles">
             
           <a href='/phpmotors/vehicles/index.php?action=addvehicle'>
             <div class="card">
@@ -38,7 +43,25 @@
                 </section>
             </div>  
           </a>
-</div>
+
+          
+</section>
+<section class="inventoryTable">
+<?php
+if (isset($message)) { 
+ echo $message; 
+} 
+if (isset($classificationList)) { 
+ echo '<h2>Vehicles By Classification</h2>'; 
+ echo '<p>Choose a classification to see those vehicles</p>'; 
+ echo $classificationList; 
+}
+?>
+<noscript>
+<p><strong>JavaScript Must Be Enabled to Use this Page.</strong></p>
+</noscript>
+<table id="inventoryDisplay"></table>
+</seection>
     </main>
     <hr>
 	
@@ -48,6 +71,6 @@
 
 </footer>
 <script src="/phpmotors/scripts/index.js"></script>
-<script src="/phpmotors/scripts/index.js"></script>
+<script src="/phpmotors/scripts/inventory.js"></script>
   </body>
 </html>
