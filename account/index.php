@@ -150,6 +150,107 @@ switch ($action){
         header('Location: /phpmotors/index.php');
         exit;
 
+    case 'update':
+        $sessionData = $_SESSION['clientData'];
+        
+        
+        $clientData = getClientInfo($sessionData['clientId']);
+        print_r ($clientData);
+        if (count($clientData)<1){
+            $message = "Sorry no client found in the database";
+        }
+        include '../view/account-update.php';
+        break;
+
+    case 'updateinfo':
+        $sessionData = $_SESSION['clientData'];
+        
+        
+        $clientData = getClientInfo($sessionData['clientId']);
+        // Filter and store the data
+        $clientFirstname = trim(filter_input(INPUT_POST, 'clientFirstname',FILTER_SANITIZE_STRING));
+        $clientLastname = trim(filter_input(INPUT_POST, 'clientLastname',FILTER_SANITIZE_STRING));
+        $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail',FILTER_SANITIZE_EMAIL));
+        $clientId = trim(filter_input(INPUT_POST, 'clientId',FILTER_SANITIZE_NUMBER_INT));
+/* GET THE CLIENTID FROM SESSION AND PASS IT TO THE FUNCTON */
+        $clientId = $clientData['clientId'];
+        $clientEmail=checkEmail($clientEmail);
+        
+
+        //check for existing email
+        $existingEmail = checkExistingEmail($clientEmail);
+        //deal with existing email
+        if($existingEmail){
+            $message = '<p class="message">This email adress already exists in our database.Do you want to log in instead?</p>';
+            include '../view/admin.php';
+            exit ;
+        }
+
+        
+     // Check for missing data
+    if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($clientPassword)){
+        $message = '<p class="message">Please provide information for all empty form fields.</p>';
+        include '../view/admin.php';
+        exit; 
+    }
+        //Hach the password
+        $hashedCientPassword = password_hash($clientPassword,PASSWORD_DEFAULT);
+        // Send the data to the model
+        $updateOutcome = updateClientInfo($clientFirstname, $clientLastname, $clientEmail,$clientId);
+
+    // Check and report the result
+    if ($updateOutcome === 1) {
+        //echo $regOutcome;
+        //$message = "<p class='message'>Thanks for registering $clientFirstname. Please use your email and password to login.</p>";
+        $_SESSION['registered'] = TRUE;
+        $_SESSION['message']= "<p class='message good'> $clientFirstname.You changed your data successfully Please use your email and password to login.</p>" ;
+        header('Location: /phpmotors/account/index.php?action=login');
+       
+        exit;
+       
+    } else {
+        $message = '<p class="message">Sorry $clientFirstname, but the modifyingfailed. Please try again.</p>';
+        include '../view/registration.php';
+        exit;
+    }
+    break;
+    case 'updatePassword':
+        // Filter and store the data
+        
+        $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword',FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $clientId = trim(filter_input(INPUT_POST, 'clientId',FILTER_SANITIZE_NUMBER_INT));
+
+       
+        $checkPassword=checkPassword($clientPassword);    
+     // Check for missing data
+    if(empty($clientPassword)){
+        $message = '<p class="message">Please provide new password.</p>';
+        include '../view/account-update.php';
+        exit; 
+    }
+        //Hach the password
+        $hashedCientPassword = password_hash($clientPassword,PASSWORD_DEFAULT);
+        // Send the data to the model
+        $updatedPassword = updateClientPassword($hashedCientPassword,$clientId);
+
+    // Check and report the result
+    if ($updatedPassword === 1) {
+        //echo $regOutcome;
+        //$message = "<p class='message'>Thanks for registering $clientFirstname. Please use your email and password to login.</p>";
+       
+        $_SESSION['message']= "<p class='message good'> $clientFirstname.Your password change was successfully Please use your email and password to login.</p>" ;
+        header('Location: /phpmotors/account/index.php?action=admin');
+       
+        exit;
+       
+    } else {
+        $message = '<p class="message">Sorry but the update failed. Please try again.</p>';
+        include '../view/account-update.php';
+        exit;
+    }
+    break;
+
+        
     case 'admin':    
         default:
         include '../view/admin.php';

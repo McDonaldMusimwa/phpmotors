@@ -23,6 +23,9 @@ if (! $_SESSION['loggedin']){
              echo $navList; ?>
         </nav>
       <main> 
+       
+        <?php print_r ($clientData) ?>
+        
         <section class="client"> 
           <h1><?php echo $_SESSION['clientData']['clientFirstname'].'
           '.$_SESSION['clientData']['clientLastname']; ?></h1>
@@ -38,6 +41,16 @@ if (! $_SESSION['loggedin']){
 
 
           </ul>
+          <section >
+            <h2>Account Management</h2>
+            <picture>
+            <a href="/phpmotors/account/index.php?action=update">
+            <img style="width:60px;display:block;" class="admin" src="/phpmotors/images/user.png" alt="user icon">
+            Update Account information
+            </a>
+            </picture>
+
+          </section>
           <?php 
           if ($_SESSION['clientData']['clientLevel']>1){
             echo '<p class"container" style="margin:20px;text-style:none;color:white;"><a  href="/phpmotors/vehicles/index.php? ">

@@ -72,9 +72,13 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
             ></label>
           </fieldset>
             <fieldset id='area2'>
-            <input id='regbtn' name='submit' type='submit'  value='Update Vehicle'>
+            <input id='regbtn' name='submit' type='submit'  value='UpdateVehicle'>
             <!-- Add the action name - value pair-->
             <input type="hidden" name="action" value="updateVehicle">
+            <input type="hidden" name="invId" value="
+            <?php if(isset($invInfo['invId'])){ echo $invInfo['invId'];} 
+            elseif(isset($invId)){ echo $invId; } ?>
+            ">
             
             </fieldset>
         </form>
