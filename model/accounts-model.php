@@ -58,7 +58,7 @@ function regClient($clientFirstname, $clientLastname, $clientEmail, $clientPassw
 
    function getClientInfo($clientId){
     $db = phpmotorsConnect();
-    $sql = 'SELECT  clientFirstname, clientLastname, clientEmail, clientPassword FROM clients WHERE clientId = :clientId';
+    $sql = 'SELECT  clientFirstname, clientLastname, clientEmail,clientId FROM clients WHERE clientId = :clientId';
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':clientId', $clientId, PDO::PARAM_INT);
     $stmt->execute();
@@ -69,21 +69,21 @@ function regClient($clientFirstname, $clientLastname, $clientEmail, $clientPassw
    }
    
    function updateClientInfo($clientFirstname,$clientLastname,$clientEmail,$clientId){
-
-    $db = phpmotorsConnect();
-    $sql = 'UPDATE clients SET clientFirstname = :clientFirstname, clientLastname = :clientLastname, clientEmail = :clientEmail
-     WHERE clientId = :clientId';
-    $stmt = $db->prepare($sql);
     
-    $stmt->bindValue(':clientFirstname', $clientFirstname, PDO::PARAM_STR);
-     $stmt->bindValue(':clientLastname', $clientLastname, PDO::PARAM_STR);
-    $stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_STR);
-
-    $stmt->bindValue(':clientId', $clientId, PDO::PARAM_INT);
-    $stmt->execute();
-    $rowsChanged = $stmt->rowCount();
-    $stmt->closeCursor();
-    return $rowsChanged;
+        $db = phpmotorsConnect();
+        $sql = 'UPDATE clients SET clientFirstname = :clientFirstname, clientLastname = :clientLastname,
+         clientEmail = :clientEmail
+        WHERE clientId = :clientId';
+        $stmt = $db->prepare($sql);
+        
+        $stmt->bindValue(':clientFirstname', $clientFirstname, PDO::PARAM_STR);
+        $stmt->bindValue(':clientLastname', $clientLastname, PDO::PARAM_STR);
+        $stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_STR);
+        $stmt->bindValue(':clientId', $clientId, PDO::PARAM_INT);
+        $stmt->execute();
+        $rowsChanged = $stmt->rowCount();
+        $stmt->closeCursor();
+        return $rowsChanged;
 
    }
 

@@ -24,11 +24,13 @@ if (! $_SESSION['loggedin']){
         </nav>
       <main> 
        
-        <?php print_r ($clientData) ?>
+        
         
         <section class="client"> 
           <h1><?php echo $_SESSION['clientData']['clientFirstname'].'
-          '.$_SESSION['clientData']['clientLastname']; ?></h1>
+          '.$_SESSION['clientData']['clientLastname']; 
+          print_r ($_SESSION);
+          ?></h1>
           <?php 
             if (isset($_SESSION['message'])){
                 echo $_SESSION['message'];

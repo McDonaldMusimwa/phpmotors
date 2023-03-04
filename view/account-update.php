@@ -27,20 +27,24 @@
             
             echo $_message;
           }
-          
-          
+        
+           echo ($clientData['clientId']) ;
           
           ?>
             <fieldset>
               
             <label class='title'>First name:
-              <input name='clientFirstname' id='clientFirstName' type='text' required placeholder='FirstName' <?php if(isset($clientFirstname)){ echo "value='$clientFirstname'"; } elseif(isset($clientData['clientFirstname'])) {echo "value='$clientData[clientFirstname]'"; }?>>
+              <input name='clientFirstname' id='clientFirstName' type='text' required placeholder='FirstName' 
+              <?php if(isset($clientFirstname)){ echo "value='$clientFirstname'"; } elseif(isset($clientData['clientFirstname'])) {echo "value='$clientData[clientFirstname]'"; }?>>
             </label>
             <label class='title'>Last name:
-              <input name='clientLastname' id='clientLastName' type='text' required placeholder='LastName' <?php if(isset($clientLastname)){ echo "value='$clientLastname'"; } elseif(isset($clientData['clientLastname'])) {echo "value='$clientData[clientLastname]'"; }?>>
+              <input name='clientLastname' id='clientLastName' type='text' required placeholder='LastName' 
+              <?php if(isset($clientLastname)){ echo "value='$clientLastname'"; } elseif(isset($clientData['clientLastname'])) {echo "value='$clientData[clientLastname]'"; }?>>
             </label>
             <label class='title'>Email:
-              <input name='clientEmail' id='clientEmail' type='email' required placeholder='Email' <?php if(isset($clientEmail)){ echo "value='$clientEmail'"; } elseif(isset($clientData['clientEmail'])) {echo "value='$clientData[clientEmail]'"; }?>>
+              <input name='clientEmail' id='clientEmail' type='email' required placeholder='Email' 
+              <?php if(isset($clientEmail)){ echo "value='$clientEmail'"; } elseif(isset($clientData['clientEmail'])) {echo "value='$clientData[clientEmail]'"; }?>
+              >
             </label>
             
             </fieldset>
@@ -67,6 +71,10 @@
           <input id='regbtn' name='submit' type='submit'  value='Update Password'>
           <!-- Add the action name - value pair-->
           <input type="hidden" name="action" value="updatePassword">
+          <input type="hidden" name="clientId" value="
+            <?php if(isset($sclientData['clientId'])){ echo $clientData['clientId'];} 
+            elseif(isset($clientId)){ echo $clientId; } ?>
+            ">
         </fieldset>
 
         </form>
