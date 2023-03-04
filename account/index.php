@@ -193,13 +193,13 @@ switch ($action){
         echo $updateOutcome;
     // Check and report the result
     if ($updateOutcome === 1) {
-        //echo $regOutcome;
-        //$message = "<p class='message'>Thanks for registering $clientFirstname. Please use your email and password to login.</p>";
+        // update session with new udpated data
         $_SESSION['updated'] = TRUE;
-        $_SESSION['clientFirstname']=$clientFirstname;
-        $_SESSION['clientLastname']=$clientLastname;
-        $_SESSION['clientEmail']=$clientEmail;
+        $_SESSION['clientData']['clientFirstname']=$clientFirstname;
+        $_SESSION['clientData']['clientLastname']=$clientLastname;
+        $_SESSION['clientData']['clientEmail']=$clientEmail;
         $_SESSION['message']= "<p class='message good'> $clientFirstname.You changed your data successfully.</p>" ;
+        print_r ($_SESSION);
       
         header('Location: /phpmotors/account/index.php?action=admin');
        

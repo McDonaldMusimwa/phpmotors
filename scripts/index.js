@@ -5,3 +5,6 @@ const shortendate = new Intl.DateTimeFormat("en-US", { dateStyle: "full" }).form
 document.getElementById("date").innerText = (shortendate);
 
 //footer data
+
+
+let array = ['Vongi','firstname ',['firstname']]
