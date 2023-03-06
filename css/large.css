@@ -77,4 +77,10 @@
     color: white;
     background-color: #444;
   }
+  #passwordbtn{
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #444;
+  }
 }

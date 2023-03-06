@@ -29,7 +29,7 @@ if (! $_SESSION['loggedin']){
         <section class="client"> 
           <h1><?php echo $_SESSION['clientData']['clientFirstname'].'
           '.$_SESSION['clientData']['clientLastname']; 
-          print_r ($_SESSION);
+          
           ?></h1>
           <?php 
             if (isset($_SESSION['message'])){
@@ -37,9 +37,24 @@ if (! $_SESSION['loggedin']){
             }
           ?>
           <ul id="client">
-            <li><?php echo "First Name: ".$_SESSION['clientData']['clientFirstname']; ?>
-            <li><?php echo "Last Name: ".$_SESSION['clientData']['clientLastname']; ?>
-            <li><?php echo "Email: ".$_SESSION['clientData']['clientEmail']; ?>
+            <li><?php 
+            if($_SESSION['updated']===FALSE){
+              echo "First Name: ".$_SESSION['clientData']['clientFirstname'];
+              } else {
+                echo "First Name: ".$_SESSION['clientFirstname'];
+                }; ?>
+            <li><?php 
+            if($_SESSION['updated']===FALSE){
+              echo "Last Name: ".$_SESSION['clientData']['clientLastname'];
+              } else {
+                echo "Last Name: ".$_SESSION['clientLastname'];
+                }; ?>
+            <li><?php 
+            if($_SESSION['updated']===FALSE){
+              echo "Email: ".$_SESSION['clientData']['clientEmail'];
+              } else {
+                echo "Email: ".$_SESSION['clientEmail'];
+                }; ?>
 
 
           </ul>

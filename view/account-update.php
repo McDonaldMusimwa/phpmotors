@@ -20,7 +20,7 @@
         <nav><?php echo $navList; ?></nav>
         <main>  
     
-        <form method="post" action='/phpmotors/account/index.php' id='login' >
+        <form method="post" action='/phpmotors/account/index.php' id='accountupdate' >
             <h1>Manage Account</h1>
             <?php 
           if (isset($message)){
@@ -28,54 +28,57 @@
             echo $_message;
           }
         
-           echo ($clientData['clientId']) ;
+         
           
           ?>
             <fieldset>
               
-            <label class='title'>First name:
-              <input name='clientFirstname' id='clientFirstName' type='text' required placeholder='FirstName' 
-              <?php if(isset($clientFirstname)){ echo "value='$clientFirstname'"; } elseif(isset($clientData['clientFirstname'])) {echo "value='$clientData[clientFirstname]'"; }?>>
-            </label>
-            <label class='title'>Last name:
-              <input name='clientLastname' id='clientLastName' type='text' required placeholder='LastName' 
-              <?php if(isset($clientLastname)){ echo "value='$clientLastname'"; } elseif(isset($clientData['clientLastname'])) {echo "value='$clientData[clientLastname]'"; }?>>
-            </label>
-            <label class='title'>Email:
-              <input name='clientEmail' id='clientEmail' type='email' required placeholder='Email' 
-              <?php if(isset($clientEmail)){ echo "value='$clientEmail'"; } elseif(isset($clientData['clientEmail'])) {echo "value='$clientData[clientEmail]'"; }?>
-              >
-            </label>
+              <label class='title'>First name:
+                <input name='clientFirstname' id='clientFirstName' type='text' required placeholder='FirstName' 
+                <?php if(isset($clientFirstname)){ echo "value='$clientFirstname'"; } elseif(isset($clientData['clientFirstname'])) {echo "value='$clientData[clientFirstname]'"; }?>>
+              </label>
+              <label class='title'>Last name:
+                <input name='clientLastname' id='clientLastName' type='text' required placeholder='LastName' 
+                <?php if(isset($clientLastname)){ echo "value='$clientLastname'"; } elseif(isset($clientData['clientLastname'])) {echo "value='$clientData[clientLastname]'"; }?>>
+              </label>
+              <label class='title'>Email:
+                <input name='clientEmail' id='clientEmail' type='email' required placeholder='Email' 
+                <?php if(isset($clientEmail)){ echo "value='$clientEmail'"; } elseif(isset($clientData['clientEmail'])) {echo "value='$clientData[clientEmail]'"; }?>
+                >
+              </label>
             
             </fieldset>
+
             <fieldset id='area2'>
-            <input id='regbtn' name='submit' type='submit'  value='Update Info'>
-            <!-- Add the action name - value pair-->
-            <input type="hidden" name="action" value="updateinfo">
-            <input type="hidden" name="clientId" value="
-            <?php if(isset($clientData['clientId'])){ echo $clientData['clientId'];} 
-            elseif(isset($clientId)){ echo $clientId; } ?>
-            ">
+              <input id='regbtn' name='submit' type='submit'  value='Update Info'>
+              <!-- Add the action name - value pair-->
+              <input type="hidden" name="action" value="updateinfo">
+              <input type="hidden" name="clientId" value="
+              <?php if(isset($clientData['clientId'])){ echo $clientData['clientId'];} 
+              elseif(isset($clientId)){ echo $clientId; } ?>
+              ">
             </fieldset>
         </form>
-        <form method="post" action='/phpmotors/account/index.php' id='login'>
-          <fieldset>
-          <label class='title'>Password:
 
-        </label>
-          <span>Password must be atleast 8 characters and contain at least 1 number,1 capital letter and 1 special character</span>
-          <span>* note your original password will be changed</span>
-          <input name='clientPassword' id='clientPassWord' type='password' required placeholder='Password' pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+        <form method="post" action='/phpmotors/account/index.php' id='passwordupdate'>
+            <fieldset>
+              <label class='title'>Password:
+                <span>Password must be atleast 8 characters and contain at least 1 number,1 capital letter and 1 special character</span>
+                <span>* note your original password will be changed</span>
+                <input name='clientPassword' id='clientPassWord' type='password' required placeholder='Password' pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+              </label>
+            </fieldset>
+
+            <fieldset id='area3'>
+              <input id='passwordbtn' name='submit' type='submit'  value='Update Password'>
+              <!-- Add the action name - value pair-->
+              <input type="hidden" name="action" value="updatePassword">
+              <input type="hidden" name="clientId" value="
+                <?php if(isset($clientData['clientId'])){ echo $clientData['clientId'];} 
+                elseif(isset($clientId)){ echo $clientId; } ?>
+                ">
+                
           </fieldset>
-          <fieldset id='area2'>
-          <input id='regbtn' name='submit' type='submit'  value='Update Password'>
-          <!-- Add the action name - value pair-->
-          <input type="hidden" name="action" value="updatePassword">
-          <input type="hidden" name="clientId" value="
-            <?php if(isset($sclientData['clientId'])){ echo $clientData['clientId'];} 
-            elseif(isset($clientId)){ echo $clientId; } ?>
-            ">
-        </fieldset>
 
         </form>
     </main>

@@ -111,7 +111,7 @@ textarea {
   width: 87%;
   border-radius: 4px;
   margin: 10px 40% 1rem 3%;
-  background-color: #4c96d7;
+  background-color: #444;
 }
 #area2 {
   margin: 0 auto;
@@ -149,3 +149,15 @@ hr {
   display: block;
 }
 /*form */
+#regbtn{
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: #444;
+}
+#passwordbtn{
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: #444;
+}

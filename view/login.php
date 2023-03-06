@@ -37,7 +37,7 @@
             <input name='clientPassword' id='clientPassword' type='password' placeholder='Password' required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
             </fieldset>
             <fieldset id='area2'>
-            <input style="color:black" id='submit' name='submit' type='submit' value='Sign In'>
+            <input style="color:white;background-color:#444;" id='submit' name='submit' type='submit' value='Sign In'>
             <!-- Add the action name - value pair-->
             <input type="hidden" name="action" value="Login">
             <label class='signup'>No Account?<a href='/phpmotors/account/index.php?action=registration'>Sign-up</a></label>

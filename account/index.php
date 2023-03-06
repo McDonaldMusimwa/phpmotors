@@ -84,6 +84,7 @@ switch ($action){
         //echo $regOutcome;
         //$message = "<p class='message'>Thanks for registering $clientFirstname. Please use your email and password to login.</p>";
         $_SESSION['registered'] = TRUE;
+        $_SESSION['updated']=FALSE;
         $_SESSION['message']= "<p class='message good'>Thanks for registering $clientFirstname. Please use your email and password to login.</p>" ;
         header('Location: /phpmotors/account/index.php?action=login');
        
@@ -138,6 +139,8 @@ switch ($action){
     $_SESSION['clientData'] = $clientData;
     // Send them to the admin view
     if ($_SESSION['loggedin']===TRUE){
+
+        $_SESSION['updated']=FALSE;
         $_SESSION['message']="<p style='margin:10px 0'>You are logged in.</p>";
                 include '../view/admin.php';
                 exit;
@@ -190,16 +193,16 @@ switch ($action){
         
         // Send the data to the model
         $updateOutcome = updateClientInfo($clientFirstname, $clientLastname, $clientEmail,$clientId);
-        echo $updateOutcome;
+        
     // Check and report the result
     if ($updateOutcome === 1) {
         // update session with new udpated data
         $_SESSION['updated'] = TRUE;
-        $_SESSION['clientData']['clientFirstname']=$clientFirstname;
-        $_SESSION['clientData']['clientLastname']=$clientLastname;
-        $_SESSION['clientData']['clientEmail']=$clientEmail;
+        $_SESSION['clientFirstname']=$clientFirstname;
+        $_SESSION['clientLastname']=$clientLastname;
+        $_SESSION['clientEmail']=$clientEmail;
         $_SESSION['message']= "<p class='message good'> $clientFirstname.You changed your data successfully.</p>" ;
-        print_r ($_SESSION);
+        
       
         header('Location: /phpmotors/account/index.php?action=admin');
        
@@ -217,35 +220,37 @@ switch ($action){
         
         $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword',FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $clientId = trim(filter_input(INPUT_POST, 'clientId',FILTER_SANITIZE_NUMBER_INT));
-
+        
        
-        $checkPassword=checkPassword($clientPassword);    
-     // Check for missing data
-    if(empty($clientPassword)){
-        $_SESSION['message'] = '<p class="message">Please provide new password.</p>';
-        include '../view/account-update.php';
-        exit; 
-    }
+        $checkPassword=checkPassword($clientPassword); 
         //Hach the password
-        $hashedCientPassword = password_hash($clientPassword,PASSWORD_DEFAULT);
-        // Send the data to the model
-        $updatedPassword = updateClientPassword($hashedCientPassword,$clientId);
-        echo $updatedPassword;
-    // Check and report the result
-    if ($updatedPassword === 1) {
-        //echo $regOutcome;
-        //$message = "<p class='message'>Thanks for registering $clientFirstname. Please use your email and password to login.</p>";
-       
-        $_SESSION['message']= "<p class='message good'> $clientFirstname.Your password change was successfully Please use your email and password to login.</p>" ;
-        header('Location: /phpmotors/account/index.php?action=admin');
-       
-        exit;
-       
-    } else {
-        $message = '<p class="message">Sorry but the update failed. Please try again.</p>';
-        include '../view/account-update.php';
-        exit;
-    }
+        $hashedCientPassword = password_hash($clientPassword,PASSWORD_DEFAULT);   
+        // Check for missing data
+        if(empty($clientPassword)){
+            $_SESSION['message'] = '<p class="message">Please provide new password.</p>';
+            include '../view/account-update.php';
+            exit; 
+        }
+            
+            // Send the data to the model
+            
+            //echo $hashedCientPassword;
+            $updatedPassword = updateClientPassword($hashedCientPassword,$clientId);
+            
+                // Check and report the result
+                if ($updatedPassword === 1) {
+                    
+                
+                    $_SESSION['message']= "<p class='message good'> $clientFirstname.Your password change was successfully Please use your email and password to login.</p>" ;
+                    header('Location: /phpmotors/account/index.php?action=admin');
+                
+                    exit;
+                            
+                } else {
+                    $_SESSION['message'] = '<p class="message">Sorry but the update failed. Please try again.</p>';
+                    include '../view/admin.php';
+                    exit;
+                }
     break;
 
         
