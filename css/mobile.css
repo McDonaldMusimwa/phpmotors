@@ -6,7 +6,7 @@
 :root {
   --lightgrey: #bababa;
   --medgrey: #8d8d8d;
-  --lightblue: #a6cbeb;
+  --lightblue: #c0d3e4;
   --skyblue: #4c96d7;
   --darkgrey: #3a3a3a;
   --white: #ffffff;
@@ -15,9 +15,9 @@
   background-color: var(--darkgrey);
 }
 /*header*/
-.myaccount>a>img{
-width: 45%;
-display: block;
+.myaccount > a > img {
+  width: 45%;
+  display: block;
 }
 .logo {
   width: 200px;
@@ -98,7 +98,7 @@ section {
   width: 90%;
 }
 
-h1{
+h1 {
   margin: 1rem auto;
   padding: 5px;
 }
@@ -132,7 +132,7 @@ footer {
   width: 80%;
   margin: 20% 10%;
 }
-.card>img{
+.card > img {
   margin: 1% 15%;
 }
 .vehicles {
@@ -140,7 +140,15 @@ footer {
 }
 .card {
   /* Add shadows to create the "card" effect */
-  box-shadow: 5px 5px 5px 1px #888888;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12);
   transition: 0.3s;
 }
 
@@ -151,20 +159,20 @@ footer {
 
 /* Add some padding inside the card container */
 .container {
-  padding: 2px 16px;
-  margin: 5% 20%;
+  padding: 2px 1px;
+  margin: 5% 23%;
 }
 
-.message{
-  color:red;
-  margin:1rem;
+.message {
+  color: red;
+  margin: 1rem;
 }
 
-.good{
-  color:green;
+.good {
+  color: green;
 }
 
-.client{
+.client {
   box-shadow: 5px 4px 2px 0px #a4a4a5;
   background-color: #a9c8e2;
   border: solid 1px;
@@ -178,17 +186,17 @@ footer {
   border-radius: 4px;
 }
 .admin:hover {
-  
   transform: scale(1.1);
-  transition: transform .5s;
+  transition: transform 0.5s;
   color: black;
 }
 
 /*inventory table display*/
 
-tr ,td{
+tr,
+td {
   border: 1px solid black;
-  
+
   background-color: white;
   height: 40px;
   color: black;
@@ -196,7 +204,7 @@ tr ,td{
   width: 90%;
   min-height: 3rem;
 }
-table{
+table {
   margin: 0 auto;
   border: 1px solid black;
   width: 100%;
@@ -206,21 +214,127 @@ table{
   margin: 5% 5%;
   padding: 5px;
 }
-#classificationList{
+#classificationList {
   width: 235px;
   font-size: 20px;
   height: 40px;
   margin: 10px 0;
 }
-#regbtn{
+#regbtn {
   font-size: 20px;
   font-weight: bold;
   color: white;
   background-color: #444;
 }
-#passwordbtn{
+#passwordbtn {
   font-size: 20px;
   font-weight: bold;
   color: white;
   background-color: #444;
+}
+/*VEHICLES DISPLAY CSS*/
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+#inv-display {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.car-card{
+  margin-bottom: 0.5em;
+  border: 1px #ccc solid;
+  list-style-type: none;
+  flex: 1 1 auto;
+  margin: 0.5rem 1%;
+  border-radius: 20px;
+  padding: 5px;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+/* car details form*/
+.car{
+  max-width: 100%;
+  border-radius: 20px;
+}
+
+#main-pic{
+  width: 370px;
+}
+.thumbanails{
+  width: 120px;
+  margin: 2px;
+}
+#printarea{
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
+}
+.icon{
+  width:45px;
+}
+
+.label{
+  display: block;
+    margin: 0 0.5em 0;
+}
+#clientcontact{
+  background-color: var(--lightblue);
+}
+#clientcontact input{
+  display: block;
+  background-color: white;
+  border: 1px solid rgb(161, 160, 160);
+  color: black;
+  height: 30px;
+  width: 100%;
+  border-radius: 4px;
+}
+#clientcontact textarea{
+  height: 60px;
+}
+textarea{
+  width: 90%;
+}
+#cardetail-page{
+  width:90%;
+  height: 40%;
+}
+#cardetail-page tr td {
+  height: 10px;
+  width: 50px;
+  
+}
+#button-area{
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+}
+#textarea{
+  margin-bottom:1rem;
+}
+
+#detail-main-picarea{
+    
+  padding: 5px;
+  margin-top:.5rem ;
+  
+}
+#detail-main-picarea p,h3,h2{
+  margin-top: 1rem;
+}
+#vehicle-descr,#vehicle-stock{
+  background-color: var(--lightblue);
+  
 }

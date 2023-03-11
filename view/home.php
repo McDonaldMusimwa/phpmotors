@@ -28,7 +28,7 @@
             Superman doors <br>
             Fuzzy dice!</p></div>
             <picture class='car'>
-                <img id='car' src='/phpmotors/images/delorean.jpg' alt="delorean gray fast car">
+                <img id='car' src='/phpmotors/images/vehicles/monster.jpg' alt="delorean gray fast car">
             </picture>
             <picture class='owntoday'><img id='button' src='/phpmotors/images/site/own_today.png' alt="open me button"></picture>
         </section>

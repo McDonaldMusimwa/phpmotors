@@ -7,7 +7,7 @@ if(isset($_SESSION['clientData'])){
    
     echo "<a href='/phpmotors/account/index.php?'> Welcome <strong>$userName</strong> | </a>";
     
-   echo "<a href='/phpmotors/account/index.php?action=logout'><img class='icon' src='/phpmotors/images/logout.png' alt='logout'> Logout</a>";
+   echo "<a href='/phpmotors/account/index.php?action=logout'><img class='icon' src='/phpmotors/images/logout.png' alt='user log out'> Logout</a>";
    
 
 
@@ -15,7 +15,7 @@ if(isset($_SESSION['clientData'])){
     
 }else{
     echo '<a href="/phpmotors/account/index.php?action=login">
-    <img class="icon"  src="/phpmotors/images/user.png" alt="user login"> 
+    <img class="icon"  src="/phpmotors/images/user.png" alt="user log in"> 
     My Account</a>';
    
    

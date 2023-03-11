@@ -2,6 +2,7 @@
  
  // Get a list of vehicles in inventory based on the classificationId 
  let classificationList = document.querySelector("#classificationList"); 
+ 
  classificationList.addEventListener("change", function () { 
   let classificationId = classificationList.value; 
   console.log(`classificationId is: ${classificationId}`); 

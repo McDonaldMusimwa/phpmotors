@@ -213,13 +213,43 @@ switch ($action){
             exit;
         }
                 
-        default:
-    //$pageTitle='VEHICLE MANAGEMENT';
+  
 
+    case 'Classifications':
+        $classificationName = filter_input(INPUT_GET, 'classificationName', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $vehicles = getVehiclesByClassification($classificationName);
+        
+        if(!count($vehicles)){
+         $message = "<p class='notice'>Sorry, no $classificationName could be found.</p>";
+        } else {
+         $vehicleDisplay = buildVehiclesDisplay($vehicles);
+        }
+        
+        include '../view/classification.php';
+        break;
+
+    case 'selectvehicle':
+        $inventoryId=filter_input(INPUT_GET, 'vehicleinfo', FILTER_SANITIZE_NUMBER_INT);
+        
+        $vehicleDetails =getVehicleByClassificationId($inventoryId);
+        
+        if(!count($vehicleDetails)){
+            $message = "<p class='message'>Sorry, no vehicle could be found.</p>";
+        }else{
+            $displayVehicle=vehicleDisplayDetails($vehicleDetails[0]);
+           
+        }
+        include '../view/vehicle-detail.php';
+        break;
+
+    default:
+        //include '../view/vehicle-man.php';
 
     $classificationList = buildClassificationList($classifications);
     include '../view/vehicle-man.php';
     break;
+
+   
 }
 
 

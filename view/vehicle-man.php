@@ -34,7 +34,7 @@ if (isset($_SESSION['message'])) {
             <div class="card">
                 <img src="../images/car.png" alt="icon of a car" style="width:70%" >
                 <section class='container'>
-                <h2> add Vehicle</h2>
+                <h2 > add Vehicle</h2>
                 </section>
             </div>  
           </a>
