@@ -13,6 +13,7 @@ require_once '../model/main-model.php';
 require_once '../model/vehicles-model.php';
 //Get account model
 require_once '../library/functions.php';
+require_once '../model/uploads-model.php';
 
 
 
@@ -231,12 +232,14 @@ switch ($action){
     case 'selectvehicle':
         $inventoryId=filter_input(INPUT_GET, 'vehicleinfo', FILTER_SANITIZE_NUMBER_INT);
         
-        $vehicleDetails =getVehicleByClassificationId($inventoryId);
+        $vehicleDetails =getVehicleByInvId($inventoryId);
+        $vehicleThumnails = getVehicleImagesByinvId($inventoryId);
         
         if(!count($vehicleDetails)){
             $message = "<p class='message'>Sorry, no vehicle could be found.</p>";
         }else{
-            $displayVehicle=vehicleDisplayDetails($vehicleDetails[0]);
+           
+            $displayVehicle=vehicleDisplayDetails($vehicleDetails[0],$vehicleThumnails);
            
         }
         include '../view/vehicle-detail.php';
