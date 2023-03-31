@@ -7,7 +7,7 @@
   --lightgrey: #bababa;
   --medgrey: #8d8d8d;
   --lightblue: #c0d3e4;
-  --skyblue: #4c96d7;
+  --skyblue: #99b9d4;
   --darkgrey: #3a3a3a;
   --white: #ffffff;
 }
@@ -171,6 +171,7 @@ footer {
 .good {
   color: green;
 }
+
 
 .client {
   box-shadow: 5px 4px 2px 0px #a4a4a5;
@@ -337,4 +338,92 @@ textarea{
 #vehicle-descr,#vehicle-stock{
   background-color: var(--lightblue);
   
+}
+/*Review Css*/
+#Reviews {
+  padding: 5px;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.reviews{
+  margin-top:.5rem;
+}
+.reviews>p{
+  margin-top: 10px;
+}
+/* reviews css*/
+.each-review{
+  border-bottom:5px dotted var(--skyblue);
+  margin-bottom: 5px;
+}
+.each-review>p{
+  margin: 5px 0;
+}
+#liBtns{
+  display: flex;
+  flex-direction: row;
+}
+.altBtn{
+  display: inline;
+  border: 1px solid black;
+  padding: 5px;
+  width: 100px;
+  height: 30px;
+  text-decoration: none;
+  margin: 7px;
+  text-align: center;
+  color: var(--darkgrey);
+  font-size: 1rem;
+}
+
+.title{
+  display: block;
+}
+.del{
+  background-color: rgb(238, 27, 27);
+}
+.mod{
+  background-color: #4da1eb;
+}
+#ReviewForm{
+  max-height: 35%;
+  min-height: 70px;
+  padding: 5px;
+}
+
+.reviewline{
+  background-color: var(--darkgrey);
+  height: 2px;
+  
+}
+
+form {
+  box-shadow: 5px 4px 2px 0px #a4a4a5;
+  background-color: #a9c8e2;
+  border: solid 1px;
+  width: 90vw;
+  max-width: 500px;
+  min-width: 300px;
+  margin: 1rem auto;
+  color: black;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+#editReview-main>h4,h5{
+  margin: .5rem 5%;
+}
+
+section>h4,h3{
+  margin:20px;
+  text-decoration: none;
+  color:white;
+}
+#details-vehicle{
+  padding: 10px;
+}
+#details-vehicle>h4,h5{
+  margin: 0.5rem 5%;
 }

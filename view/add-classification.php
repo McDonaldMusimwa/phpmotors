@@ -62,6 +62,6 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
 
 </footer>
 <script src="/phpmotors/scripts/index.js"></script>
-<script src="/phpmotors/scripts/index.js"></script>
+
   </body>
 </html>

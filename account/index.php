@@ -35,7 +35,7 @@ $action = filter_input(INPUT_GET,'action');
 if ($action==NULL){
     $action = filter_input(INPUT_POST,'action');
 }
-
+ 
 switch ($action){
     case 'registration':
         include '../view/registration.php';
@@ -261,8 +261,3 @@ switch ($action){
 
 
     }
-
-
-
-
-?>
