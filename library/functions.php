@@ -88,7 +88,6 @@ function buildVehiclesDisplay($vehicles){
     foreach ($image as $img){
         $div .= "<img class='' src='$img[imgPath]' alt='vehicle'>";
     }
-   
     $div .= "<p id='vehicle-descr'>$vehicle[invDescription]</p>";
     $div .= "<p id='vehicle-color'><strong>Color :$vehicle[invColor]</strong></p>";
     $div .= "<h2 id='vehicle-stock'>InStock: $vehicle[invStock]</h2>";
@@ -98,11 +97,11 @@ function buildVehiclesDisplay($vehicles){
     $div .= "<h3 ><strong>Price :$ $vehicle[invPrice]</strong></h3>";
     
     $div .= '<div id="printarea">';
-    $div .= '<img class="icon" src="/phpmotors/images/printer.png" alt="printer icon">';
-     
-    $div .= '<p>Print Vehicle</p>';
-    $div .= '<img class="icon" src="/phpmotors/images/calculator.png" alt="price calculator">';
-    $div .='<p>Payment Calculator</p>';
+    
+     $div .= '<a href="#Reviews">Reviews';
+     $div .= "<input type='hidden' name='invId' value=$vehicle[invId]>";
+    $div .='</a>';
+    
     $div .='</div>';
     $div .= '</section>';
     
@@ -121,7 +120,7 @@ function buildVehiclesDisplay($vehicles){
     $div .= '</fieldset>';
     $div .= '</form>';   
     
-$div .= '</div>';
+    $div .= '</div>';
 return $div;
    }
 /* helper functions for images */
@@ -279,5 +278,56 @@ function resizeImage($old_image_path, $new_image_path, $max_width, $max_height) 
      // Free any memory associated with the old image
      imagedestroy($old_image);
    } // ends resizeImage function
+
+
+
+   /*this generate a template top render all customers reviews for each vehicle from the database*/
+
+
+
+   function renderAllReviews($reviews) {
+    $rev = '<div class="reviewline"></div>';
+    $rev .= '<div class="reviews">';
+    
+    foreach ($reviews as $review) {
+        $firstname = substr($review['clientFirstname'],0,1);
+        $lastname = $review['clientFirstname'];
+        $date = date('d F, Y',strtotime(date($review['reviewDate'])));
+     $rev .= "<div class='each-review'>$firstname $lastname Reviewed on $date";
+     $rev .= "<p>$review[reviewTxt]</p>";
+     $rev .= "</div>";
+    }
+    $rev .= '</div>';
+    return $rev;
+   }
+
+
+   
+
+
+/* the function to deliver review template per client*/
+function buildReviewList($data) { 
+    $ul = '<ul id="reviewDisplay">';
+    
+    foreach($data as $review){
+        $date =date('d F, Y',strtotime( date($review['reviewDate'])));
+        
+        $ul .= "<li>$review[invMake]  $review[invModel] (Revised on $date ";
+       
+        $ul .= "<div id='liBtns'>";
+        $ul .= "<a class='altBtn mod' href='/phpmotors/reviews?action=edit&reviewId={$review['reviewId']}'>Modify </a>";
+        $ul .= "<a class='altBtn del' href='/phpmotors/reviews?action=delete&reviewId={$review['reviewId']}'>Delete </a>";
+        $ul .= "<input type='hidden' name='reviewId' value='<?php echo $review[reviewId]   ?>' >";
+        $ul .= "</div>";
+        $ul .= "</li>";
+        
+    }
+
+    $ul .= '</ul>';
+
+    return $ul;
+   }
+   
+   
 
 ?>

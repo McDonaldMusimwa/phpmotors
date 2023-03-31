@@ -76,12 +76,7 @@
     grid-row: 1/2;
     padding: 2rem;
   }
-  .reviews {
-    grid-column: 2/3;
-    grid-row: 1/2;
-    margin-left: 1rem;
-    padding: 2rem;
-  }
+
   .reviews ul li {
     padding: 0.7rem;
   }
@@ -110,9 +105,10 @@
     flex-direction: row;
     margin: 5% 20%;
   }
-  main > h1 {
+  main > h1, h4,h5{
     margin-left: 40rem;
   }
+  
   .message {
     color: red;
     margin: 1rem;
@@ -136,7 +132,7 @@
     background-color: #a9c8e2;
     border: solid 1px;
     width: 80vw;
-    max-width: 500px;
+    max-width: 700px;
     min-width: 300px;
     margin: 1rem auto;
     padding: 40px;
@@ -144,6 +140,8 @@
     border: 1px solid black;
     border-radius: 4px;
   }
+  /*account*/
+ 
   /*table*/
   .inventoryTable{
     max-width: 60%;
@@ -192,7 +190,7 @@
     border-radius:8px;
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows:10rem 70% .5fr;
+    grid-template-rows:10rem 70% 5fr;
     padding: 10px;
   }
   #inv-display div {
@@ -276,5 +274,81 @@
     padding: 5px;
     font-size: 20px;
   }
+  /*Reviews css*/
+  #ReviewForm {
+    max-width: 70%;
+    min-width: 500px;
+    max-height: 30%;
+    min-height: 50px;
+    
+    border: 1px solid black;
+    border-radius: 8px;
+    margin: 1rem auto;
+
+    padding: 5px;
+    
+    display: flex;
+    flex-direction: column;
+
+  }
   
+  .reviews {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    margin:1rem 14%;
+    padding: .5rem;
+  }
+  #reviewDisplay{
+    padding: 0;
+  }
+  #reviewDisplay>li{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    text-align: center;
+    
+  }
+  .title{
+    display: block;
+  }
+  .title>textarea{
+    display: block;
+  }
+  .clientReview{
+    display: block;
+    margin: 1rem auto;
+  }
+  .reviewline{
+    background-color: var(--darkgrey);
+    height: 2px;
+    max-width: 70%;
+    min-width: 500px;
+    margin: 1px 14%;
+  }
+  .altBtn {
+    display: inline;
+    border: 1px solid black;
+    padding: 2px;
+    width: 100px;
+    height: 25px;
+    text-decoration: none;
+    margin: 0px 7px 25px 7px;
+    text-align: center;
+    color: var(--darkgrey);
+    font-size: 1rem;
+}
+
+#clientReview{
+  height: 5%;
+  overflow: hidden;
+}
+#editReview-main>h4, h5 {
+  margin: 0.5rem 15%;
+}
+#details-vehicle>h4,h5{
+  margin: 0.5rem 15%;
+}
+#details-vehicle{
+  padding: 1px;
+}
 }

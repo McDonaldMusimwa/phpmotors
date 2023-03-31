@@ -13,8 +13,10 @@ require_once '../model/main-model.php';
 require_once '../model/vehicles-model.php';
 //Get account model
 require_once '../library/functions.php';
+//Get uploads model
 require_once '../model/uploads-model.php';
-
+//Get reviews model
+require_once '../model/reviews-model.php';
 
 
 
@@ -39,7 +41,7 @@ $classificationList .='<option> Choose a Classification</option>';
 foreach ($classifications as $classification) {
     $classificationList .= "<option value='$classification[classificationId]'";
     if (isset($classificationId)){
-        if ($classification['classificationId']===classificationId){
+        if ($classification['classificationId']=== $classificationId){
             $classificationList .= ' selected ';
             break;
         }
@@ -231,16 +233,34 @@ switch ($action){
 
     case 'selectvehicle':
         $inventoryId=filter_input(INPUT_GET, 'vehicleinfo', FILTER_SANITIZE_NUMBER_INT);
-        
+       
         $vehicleDetails =getVehicleByInvId($inventoryId);
         $vehicleThumnails = getVehicleImagesByinvId($inventoryId);
         
+        /*get reviews and add to the display vehicle function*/
+        $vehicleDetailsForReviews = $vehicleDetails[0];
+        
+        $vehId = $vehicleDetailsForReviews['invId'];
+        
+        if ($_SESSION){
+            $clientDataForReviews = $_SESSION['clientData'];
+            
+            $clientFirstname = $clientDataForReviews['clientFirstname'];
+            $clientLastname = $clientDataForReviews['clientLastname'];
+            $clieId = $clientDataForReviews['clientId'];
+            $screenName = substr($clientFirstname,0,1). $clientLastname;
+            
+            }
+        /* end if retrieving reviews*/
         if(!count($vehicleDetails)){
             $message = "<p class='message'>Sorry, no vehicle could be found.</p>";
         }else{
            
             $displayVehicle=vehicleDisplayDetails($vehicleDetails[0],$vehicleThumnails);
+            
+            $reviews = retriveAllReviews($inventoryId);
            
+            $displayReview=renderAllReviews($reviews);
         }
         include '../view/vehicle-detail.php';
         break;

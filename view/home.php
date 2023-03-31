@@ -83,6 +83,6 @@
 
 </footer>
 <script src="/phpmotors/scripts/index.js"></script>
-<script src="/phpmotors/scripts/index.js"></script>
+
   </body>
 </html>
