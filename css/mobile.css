@@ -7,14 +7,19 @@
   --lightgrey: #bababa;
   --medgrey: #8d8d8d;
   --lightblue: #c0d3e4;
-  --skyblue: #99b9d4;
+  --skyblue: #66a0d0;
   --darkgrey: #3a3a3a;
   --white: #ffffff;
+  --modify:rgb(149, 213, 149);
+  --delete:rgb(212, 29, 29);
 }
 #humburgerBtn:hover {
   background-color: var(--darkgrey);
 }
 /*header*/
+.myaccount{
+  margin: 1rem 1px .4rem 25%;
+}
 .myaccount > a > img {
   width: 45%;
   display: block;
@@ -175,7 +180,7 @@ footer {
 
 .client {
   box-shadow: 5px 4px 2px 0px #a4a4a5;
-  background-color: #a9c8e2;
+  background-color:var(--skyblue);
   border: solid 1px;
   width: 80vw;
   max-width: 500px;
@@ -234,6 +239,13 @@ table {
   background-color: #444;
 }
 /*VEHICLES DISPLAY CSS*/
+.adminlinks>h3>a>img{
+  width:20%;
+  display:block;
+}
+.adminlinks>h3{
+margin-left: 0;
+}
 html {
   box-sizing: border-box;
 }
@@ -361,7 +373,7 @@ textarea{
 .each-review>p{
   margin: 5px 0;
 }
-#liBtns{
+.li-Btns{
   display: flex;
   flex-direction: row;
 }
@@ -382,10 +394,10 @@ textarea{
   display: block;
 }
 .del{
-  background-color: rgb(238, 27, 27);
+  background-color:var(--delete);
 }
 .mod{
-  background-color: #4da1eb;
+  background-color:var(--modify);
 }
 #ReviewForm{
   max-height: 35%;
@@ -401,7 +413,7 @@ textarea{
 
 form {
   box-shadow: 5px 4px 2px 0px #a4a4a5;
-  background-color: #a9c8e2;
+  background-color:var(--skyblue);
   border: solid 1px;
   width: 90vw;
   max-width: 500px;
@@ -417,9 +429,9 @@ form {
 }
 
 section>h4,h3{
-  margin:20px;
+  margin:3px 2px;
   text-decoration: none;
-  color:white;
+  color:var(--darkgrey);
 }
 #details-vehicle{
   padding: 10px;

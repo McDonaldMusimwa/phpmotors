@@ -71,11 +71,11 @@ if (!$_SESSION['loggedin']) {
         </div>
 
       </section>
-      <section>
+      <section class="adminlinks">
         <?php
         if ($_SESSION['clientData']['clientLevel'] > 1) {
           echo '<h3  ><a  href="/phpmotors/vehicles/index.php? ">
-            <img class="admin" src="../images/carmanagement2.png" alt="Smashicons" style="width:20%;display:block">
+            <img class="admin" src="../images/carmanagement2.png" alt="Smashicons" >
             <strong class="admin">View vehicle controller</strong>
             </a>
             </h3>';
@@ -83,16 +83,17 @@ if (!$_SESSION['loggedin']) {
 
         ?>
       </section>
-      <section>
+      <section class="adminlinks">
+        <h4 style="margin-left:black;">Review Management</h4>
         <?php
         if ($_SESSION['clientData']['clientLevel'] >= 1) {
-          echo '<h4  >
+          echo '<p style="margin-left:0;">
             <a  href="/phpmotors/reviews?action=Review-management ">
             <img class="admin" src="../images/reviews.png" alt="freepik" style="width:20%;display:block">
             <strong class="admin">Manage Reviews</strong>
             
             </a>
-            </h4>';
+            </p>';
         }
 
         ?>

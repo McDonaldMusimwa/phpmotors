@@ -63,9 +63,11 @@ if (! $_SESSION['loggedin']){
             
             
             <?php 
-            
+              if (!empty($displayClientReviews)){
               echo $displayClientReviews;
-              
+              }else{
+                echo '<p class="good">No Reviews</p>';
+              }
             ?>
             
 
