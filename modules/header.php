@@ -5,8 +5,8 @@
 if(isset($_SESSION['clientData'])){
     $userName = $_SESSION['clientData']['clientFirstname'];
    
-    echo "<a href='/phpmotors/account/index.php?'> Welcome <strong>$userName</strong>  |</a>";
-    echo "<a href='/phpmotors/account/index.php?action=logout'>Logout</a>";
+    echo "<a id='welcome' href='/phpmotors/account/index.php?'> Welcome <strong>$userName</strong>  </a>";
+    echo "<a id='logout' href='/phpmotors/account/index.php?action=logout'>| Logout</a>";
    
 
 

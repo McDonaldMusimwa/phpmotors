@@ -21,8 +21,13 @@
     <?php require $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/modules/errormessageheader.php'; ?>
   </header>
   <nav>
-    <?php require $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/modules/nav.php'; ?>
-  </nav>
+        <button id="humburgerBtn">
+          <span>&#9776;</span>
+          <span>X</span>
+        </button>
+            <?php
+             echo $navList; ?>
+        </nav>
   <main>
     <h1>Server Error</h1>
     <p>Sorry our server seens to be experiencing some technical difficulties .Please check back later.</p>

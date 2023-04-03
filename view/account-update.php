@@ -8,8 +8,9 @@
 		echo "Modify $clientData[clientFirstname] $clientData[clientLastname]";} 
 	elseif(isset($clientFirstname) && isset($clientLastname)) { 
 		echo "Modify $clientFirstnane $clientLastname"; }?>Php motors</title>
-    <link rel="stylesheet" href="/phpmotors/css/base.css">
-    <link rel="stylesheet" href="/phpmotors/css/large.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" >
+    <link rel="stylesheet" href="/phpmotors/css/mobile.css" media="screen">
+    <link rel="stylesheet" href="/phpmotors/css/desktop.css" media="screen">
     
   </head>
   <body>
@@ -17,7 +18,12 @@
         <header id="beforenav">
         <?php require $_SERVER['DOCUMENT_ROOT'] .'/phpmotors/modules/header.php'; ?>
         </header>
-        <nav><?php echo $navList; ?></nav>
+        <nav>
+        <button id="humburgerBtn">
+          <span>&#9776;</span>
+          <span>X</span>
+        </button>
+        <?php echo $navList; ?></nav>
         <main>  
     
         <form method="post" action='/phpmotors/account/index.php' id='accountupdate' >

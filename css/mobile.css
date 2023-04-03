@@ -6,24 +6,57 @@
 :root {
   --lightgrey: #bababa;
   --medgrey: #8d8d8d;
-  --lightblue: #c0d3e4;
-  --skyblue: #66a0d0;
+  --lightblue: #96c1e7;
+  --skyblue: #adb8c1;
   --darkgrey: #3a3a3a;
   --white: #ffffff;
-  --modify:rgb(149, 213, 149);
-  --delete:rgb(212, 29, 29);
+  --modify: rgb(149, 213, 149);
+  --delete: #f6c6c6;
+  --formsize: ;
 }
-#humburgerBtn:hover {
-  background-color: var(--darkgrey);
+/* harm buger menu*/
+nav button {
+  margin: 0.2rem 2vw;
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  color: var(--white);
 }
-/*header*/
-.myaccount{
-  margin: 1rem 1px .4rem 25%;
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
 }
-.myaccount > a > img {
-  width: 45%;
+nav ul.open {
   display: block;
 }
+#humburgerBtn span:nth-child(1) {
+  display: block;
+}
+#humburgerBtn span:nth-child(2) {
+  display: none;
+}
+#humburgerBtn.open span:nth-child(1) {
+  display: none;
+}
+#humburgerBtn.open span:nth-child(2) {
+  display: block;
+}
+/*end of hamburger menu*/
+/*header*/
+#welcome {
+  margin-top: 1rem;
+  border: 1px solid var(--darkgrey);
+  background-color: var(--lightblue);
+  padding: 10px;
+  text-decoration: none;
+}
+#logout {
+  display: block;
+  margin: 1rem;
+}
+
 .logo {
   width: 200px;
   height: 100px;
@@ -52,17 +85,19 @@ nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: none;
 }
 nav ul li {
   color: var(--white);
-  display: inline-block;
+  display: block;
   list-style-type: none;
 }
 nav ul li a {
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1vw;
   text-decoration: none;
   color: var(--white);
+  border-top: 1px solid rgba(0, 0, 0, 0.034);
   font-size: 12px;
 }
 nav ul li a:hover {
@@ -143,17 +178,16 @@ footer {
 .vehicles {
   margin: 0 10%;
 }
+
 .card {
   /* Add shadows to create the "card" effect */
   border-radius: 20px;
   padding: 20px;
-  box-shadow:
-  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-  0 12.5px 10px rgba(0, 0, 0, 0.06),
-  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-  0 100px 80px rgba(0, 0, 0, 0.12);
+  background-color: var(--skyblue);
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
   transition: 0.3s;
 }
 
@@ -177,10 +211,9 @@ footer {
   color: green;
 }
 
-
 .client {
   box-shadow: 5px 4px 2px 0px #a4a4a5;
-  background-color:var(--skyblue);
+  background-color: var(--skyblue);
   border: solid 1px;
   width: 80vw;
   max-width: 500px;
@@ -233,18 +266,20 @@ table {
   background-color: #444;
 }
 #passwordbtn {
+  width: 100%;
+  height: 30%;
   font-size: 20px;
   font-weight: bold;
   color: white;
   background-color: #444;
 }
 /*VEHICLES DISPLAY CSS*/
-.adminlinks>h3>a>img{
-  width:20%;
-  display:block;
+.adminlinks > h3 > a > img {
+  width: 20%;
+  display: block;
 }
-.adminlinks>h3{
-margin-left: 0;
+.adminlinks > h3 {
+  margin-left: 0;
 }
 html {
   box-sizing: border-box;
@@ -263,49 +298,49 @@ html {
   flex-direction: column;
 }
 
-.car-card{
+.car-card {
   margin-bottom: 0.5em;
   border: 1px #ccc solid;
   list-style-type: none;
   flex: 1 1 auto;
   margin: 0.5rem 1%;
   border-radius: 20px;
-  padding: 5px;
+  padding: 40px;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
     0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
 }
 /* car details form*/
-.car{
-  max-width: 100%;
+.car {
+  max-width: 150%;
   border-radius: 20px;
 }
 
-#main-pic{
+#main-pic {
   width: 370px;
 }
-.thumbanails{
+.thumbanails {
   width: 120px;
   margin: 2px;
 }
-#printarea{
+#printarea {
   display: flex;
   flex-direction: row;
   margin-top: 1rem;
 }
-.icon{
-  width:45px;
+.icon {
+  width: 45px;
 }
 
-.label{
+.label {
   display: block;
-    margin: 0 0.5em 0;
+  margin: 0 0.5em 0;
 }
-#clientcontact{
+#clientcontact {
   background-color: var(--lightblue);
 }
-#clientcontact input{
+#clientcontact input {
   display: block;
   background-color: white;
   border: 1px solid rgb(161, 160, 160);
@@ -314,42 +349,41 @@ html {
   width: 100%;
   border-radius: 4px;
 }
-#clientcontact textarea{
+#clientcontact textarea {
   height: 60px;
 }
-textarea{
+textarea {
   width: 90%;
 }
-#cardetail-page{
-  width:90%;
+#cardetail-page {
+  width: 90%;
   height: 40%;
 }
 #cardetail-page tr td {
   height: 10px;
   width: 50px;
-  
 }
-#button-area{
+#button-area {
   display: flex;
   flex-direction: row;
   width: 95%;
 }
-#textarea{
-  margin-bottom:1rem;
+#textarea {
+  margin-bottom: 1rem;
 }
 
-#detail-main-picarea{
-    
+#detail-main-picarea {
   padding: 5px;
-  margin-top:.5rem ;
-  
+  margin-top: 0.5rem;
 }
-#detail-main-picarea p,h3,h2{
+#detail-main-picarea p,
+h3,
+h2 {
   margin-top: 1rem;
 }
-#vehicle-descr,#vehicle-stock{
+#vehicle-descr,
+#vehicle-stock {
   background-color: var(--lightblue);
-  
 }
 /*Review Css*/
 #Reviews {
@@ -359,25 +393,25 @@ textarea{
   flex-direction: column;
 }
 
-.reviews{
-  margin-top:.5rem;
+.reviews {
+  margin-top: 0.5rem;
 }
-.reviews>p{
+.reviews > p {
   margin-top: 10px;
 }
 /* reviews css*/
-.each-review{
-  border-bottom:5px dotted var(--skyblue);
+.each-review {
+  border-bottom: 5px dotted var(--skyblue);
   margin-bottom: 5px;
 }
-.each-review>p{
+.each-review > p {
   margin: 5px 0;
 }
-.li-Btns{
+.li-Btns {
   display: flex;
   flex-direction: row;
 }
-.altBtn{
+.altBtn {
   display: inline;
   border: 1px solid black;
   padding: 5px;
@@ -390,30 +424,29 @@ textarea{
   font-size: 1rem;
 }
 
-.title{
+.title {
   display: block;
 }
-.del{
-  background-color:var(--delete);
+.del {
+  background-color: var(--delete);
 }
-.mod{
-  background-color:var(--modify);
+.mod {
+  background-color: var(--modify);
 }
-#ReviewForm{
+#ReviewForm {
   max-height: 35%;
   min-height: 70px;
   padding: 5px;
 }
 
-.reviewline{
+.reviewline {
   background-color: var(--darkgrey);
   height: 2px;
-  
 }
 
 form {
   box-shadow: 5px 4px 2px 0px #a4a4a5;
-  background-color:var(--skyblue);
+  background-color: var(--skyblue);
   border: solid 1px;
   width: 90vw;
   max-width: 500px;
@@ -424,18 +457,256 @@ form {
   border-radius: 4px;
 }
 
-#editReview-main>h4,h5{
-  margin: .5rem 5%;
+#editReview-main > h4,
+h5 {
+  margin: 0.5rem 5%;
 }
 
-section>h4,h3{
-  margin:3px 2px;
+section > h4,
+h3 {
+  margin: 3px 2px;
   text-decoration: none;
-  color:var(--darkgrey);
+  color: var(--darkgrey);
 }
-#details-vehicle{
+#details-vehicle {
   padding: 10px;
 }
-#details-vehicle>h4,h5{
+#details-vehicle > h4,
+h5 {
   margin: 0.5rem 5%;
+}
+
+/*base css*/
+.logo {
+  width: 200px;
+  height: 100px;
+}
+.myaccount {
+  margin: 1rem 0 1rem 2rem;
+  padding: 1px;
+}
+.myaccount > a > img {
+  width: 20%;
+  display: block;
+  margin: 0 5px;
+}
+#beforenav p {
+  padding: 40px 2px;
+  margin-left: 10%;
+  font-size: 15px;
+}
+body {
+  background-color: var(--white);
+  width: 100%;
+}
+#beforenav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--darkgrey);
+  text-align: center;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: var(--white);
+  font-size: 20px;
+}
+nav ul li a:hover {
+  background-color: var(--skyblue);
+  color: var(--darkgrey);
+}
+br {
+  background-color: var(--darkgrey);
+}
+/*form Login Css*/
+.title {
+  display: block;
+}
+#login {
+  width: 100%;
+}
+
+.modifyhead {
+  margin: 2rem 19px;
+  font-size: 28px;
+}
+#login > img {
+  width: 30px;
+  align-items: center;
+  margin: 0.8rem 45%;
+}
+fieldset {
+  border: none;
+}
+
+#login > h1 {
+  margin: 0 10%;
+  padding: 10px;
+  text-align: center;
+  font-size: 150%;
+}
+
+form {
+  box-shadow: 5px 4px 2px 0px #a4a4a5;
+  background-color: var(--white);
+
+  width: 80vw;
+  max-width: 300px;
+  min-width: 100px;
+  margin: 1rem auto;
+  color: black;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 0;
+}
+label {
+  width: 100%;
+  position: relative;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+input,
+select {
+  border-radius: 3px;
+}
+input {
+  font-family: Ubuntu-Bold;
+  color: #403866;
+  line-height: 1.2;
+  font-size: 18px;
+  display: block;
+  width: 100%;
+  background: 0 0;
+  height: 62px;
+  padding: 0 20px 0 38px;
+}
+#submit {
+  font-family: Ubuntu-Bold;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 62px;
+
+  border-radius: 3px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  background-color: #444;
+}
+#submit:hover {
+  background-color: var(--lightblue);
+  color: var(--darkgrey);
+}
+#area2 {
+  margin: 1rem auto;
+}
+.signup {
+  margin: 10rem 25%;
+}
+.signup > a {
+  color: black;
+  margin-top: 15px;
+}
+footer {
+  text-align: center;
+}
+#classificationId {
+  width: 235px;
+  font-size: 20px;
+  height: 40px;
+  margin: 10px;
+}
+.message {
+  color: red;
+  margin: 1rem;
+}
+
+.good {
+  color: green;
+}
+hr {
+  background-color: var(--darkgrey);
+  height: 5px;
+}
+
+.icon {
+  width: 40%;
+  display: block;
+}
+/*form */
+#accountupdate > h1 {
+  text-align: center;
+}
+#regbtn {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: #444;
+}
+#regbtn:hover {
+  background-color: var(--lightblue);
+  color: var(--darkgrey);
+}
+#passwordbtn {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: #444;
+}
+#passwordbtn:hover {
+  background-color: var(--lightblue);
+  color: var(--darkgrey);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+#inv-display {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#inv-display li {
+  margin-bottom: 0.5em;
+  border: 1px #ccc solid;
+  list-style-type: none;
+  flex: 1 1 auto;
+}
+
+#inv-display li img {
+  max-width: 100%;
 }
