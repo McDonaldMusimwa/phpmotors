@@ -77,13 +77,11 @@ switch ($action) {
 
         $clientreview = trim(filter_input(INPUT_POST, 'clientReview', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $clientId = trim(filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT));
-        echo $invId;
-        echo $clientreview;
-        echo $clientId;
 
         $reviews = AddReview(intval($invId), intval($clientId), $clientreview);
         if ($reviews === 1) {
-            $message = "<p class='message'>Review was added successfully.</p>";
+            $message = "<p class='good'>Review was added successfully.</p>";
+            $_SESSION['message'] = $message;
         } else {
             $message = "<p>Review not added</p>";
         }

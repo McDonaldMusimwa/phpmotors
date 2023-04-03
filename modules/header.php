@@ -1,13 +1,12 @@
 <img class='logo' src='/phpmotors/images/site/logo.png' alt="php logo">
-<p class="myaccount">
+<div class="myaccount">
 <?php 
 
 if(isset($_SESSION['clientData'])){
     $userName = $_SESSION['clientData']['clientFirstname'];
    
-    echo "<a href='/phpmotors/account/index.php?'> Welcome <strong>$userName</strong> | </a>";
-    
-   echo "<a href='/phpmotors/account/index.php?action=logout'><img class='icon' src='/phpmotors/images/logout.png' alt='user log out'> Logout</a>";
+    echo "<a id='welcome' href='/phpmotors/account/index.php?'> Welcome <strong>$userName</strong>  </a>";
+    echo "<a id='logout' href='/phpmotors/account/index.php?action=logout'>| Logout</a>";
    
 
 
@@ -22,4 +21,4 @@ if(isset($_SESSION['clientData'])){
    }
 ?>
 
-</p>
+</div>

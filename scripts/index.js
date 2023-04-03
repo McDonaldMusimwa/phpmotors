@@ -35,3 +35,13 @@ function buildReviewList(data) {
   // Display the contents in the Vehicle Management view 
   reviewDisplay.innerHTML = dataTable; 
  }
+
+ //'use strict';
+/*Hamburger menu Js*/
+function toggleMenu() {
+  document.getElementById("myLinks").classList.toggle("open");
+  document.getElementById("humburgerBtn").classList.toggle("open");
+}
+
+const openmenu = document.getElementById("humburgerBtn");
+openmenu.onclick = toggleMenu;

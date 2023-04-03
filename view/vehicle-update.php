@@ -13,8 +13,9 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
 		echo "Modify $invInfo[invMake] $invInfo[invModel]";} 
 	elseif(isset($invMake) && isset($invModel)) { 
 		echo "Modify $invMake $invModel"; }?> | PHP MOTORS</title>
-    <link rel="stylesheet" href="/phpmotors/css/base.css" media="screen">
-    <link rel="stylesheet" href="/phpmotors/css/large.css" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" >
+    <link rel="stylesheet" href="/phpmotors/css/mobile.css" media="screen">
+    <link rel="stylesheet" href="/phpmotors/css/desktop.css" media="screen">
     
   </head>
   <body>
@@ -23,6 +24,10 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
         <?php require $_SERVER['DOCUMENT_ROOT'] .'/phpmotors/modules/header.php'; ?>
         </header>
         <nav>
+        <button id="humburgerBtn">
+          <span>&#9776;</span>
+          <span>X</span>
+        </button>
             <?php
              echo $navList; ?>
         </nav>

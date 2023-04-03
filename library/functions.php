@@ -96,14 +96,12 @@ function buildVehiclesDisplay($vehicles){
     $div .= "<h2>$vehicle[invMake],$vehicle[invModel]</h2>";
     $div .= "<h3 ><strong>Price :$ $vehicle[invPrice]</strong></h3>";
     
-    $div .= '<div id="printarea">';
+
     
-     $div .= '<a href="#Reviews">Reviews';
-     $div .= "<input type='hidden' name='invId' value=$vehicle[invId]>";
-    $div .='</a>';
+     $div .= '<a href="#Reviews">Reviews<input type="hidden" name="invId" value=$vehicle[invId]></a>';
     
-    $div .='</div>';
-    $div .= '</section>';
+    
+    
     
     $div .= '<form method="post" action="/phpmotors/account/index.php" id="clientcontact">';
     $div .= '<label class="label">To:phpmotors</label>';
@@ -119,7 +117,7 @@ function buildVehiclesDisplay($vehicles){
     $div .= '<a style="margin-left:6rem;" href="" >Privacy Policy</a>';
     $div .= '</fieldset>';
     $div .= '</form>';   
-    
+    $div .= '</section>';
     $div .= '</div>';
 return $div;
    }
@@ -291,9 +289,9 @@ function resizeImage($old_image_path, $new_image_path, $max_width, $max_height) 
     
     foreach ($reviews as $review) {
         $firstname = substr($review['clientFirstname'],0,1);
-        $lastname = $review['clientFirstname'];
+        $lastname = $review['clientLastname'];
         $date = date('d F, Y',strtotime(date($review['reviewDate'])));
-     $rev .= "<div class='each-review'>$firstname $lastname Reviewed on $date";
+     $rev .= "<div class='each-review'><strong>$firstname $lastname Reviewed on $date</strong>";
      $rev .= "<p>$review[reviewTxt]</p>";
      $rev .= "</div>";
     }
@@ -314,7 +312,7 @@ function buildReviewList($data) {
         
         $ul .= "<li>$review[invMake]  $review[invModel] (Revised on $date ";
        
-        $ul .= "<div id='liBtns'>";
+        $ul .= "<div class='li-Btns'>";
         $ul .= "<a class='altBtn mod' href='/phpmotors/reviews?action=edit&reviewId={$review['reviewId']}'>Modify </a>";
         $ul .= "<a class='altBtn del' href='/phpmotors/reviews?action=delete&reviewId={$review['reviewId']}'>Delete </a>";
         $ul .= "<input type='hidden' name='reviewId' value='<?php echo $review[reviewId]   ?>' >";

@@ -11,9 +11,9 @@ if (!$_SESSION['loggedin']) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Php Admin motors</title>
-  <link rel="stylesheet" href="/phpmotors/css/mobile.css" media="screen">
-  <link rel="stylesheet" href="/phpmotors/css/desktop.css" media="screen">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" >
+    <link rel="stylesheet" href="/phpmotors/css/mobile.css" media="screen">
+    <link rel="stylesheet" href="/phpmotors/css/desktop.css" media="screen">
 </head>
 
 <body>
@@ -22,9 +22,13 @@ if (!$_SESSION['loggedin']) {
     <?php require $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/modules/header.php'; ?>
   </header>
   <nav>
-    <?php
-    echo $navList; ?>
-  </nav>
+        <button id="humburgerBtn">
+          <span>&#9776;</span>
+          <span>X</span>
+        </button>
+            <?php
+             echo $navList; ?>
+        </nav>
   <main>
 
 
@@ -71,11 +75,11 @@ if (!$_SESSION['loggedin']) {
         </div>
 
       </section>
-      <section>
+      <section class="adminlinks">
         <?php
         if ($_SESSION['clientData']['clientLevel'] > 1) {
           echo '<h3  ><a  href="/phpmotors/vehicles/index.php? ">
-            <img class="admin" src="../images/carmanagement2.png" alt="Smashicons" style="width:20%;display:block">
+            <img class="admin" src="../images/carmanagement2.png" alt="Smashicons" >
             <strong class="admin">View vehicle controller</strong>
             </a>
             </h3>';
@@ -83,16 +87,17 @@ if (!$_SESSION['loggedin']) {
 
         ?>
       </section>
-      <section>
+      <section class="adminlinks">
+        <h4 style="margin-left:black;">Review Management</h4>
         <?php
         if ($_SESSION['clientData']['clientLevel'] >= 1) {
-          echo '<h4  >
+          echo '<p style="margin-left:0;">
             <a  href="/phpmotors/reviews?action=Review-management ">
             <img class="admin" src="../images/reviews.png" alt="freepik" style="width:20%;display:block">
             <strong class="admin">Manage Reviews</strong>
             
             </a>
-            </h4>';
+            </p>';
         }
 
         ?>
